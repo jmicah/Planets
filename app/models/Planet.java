@@ -237,7 +237,83 @@ public interface Planet {
 	 */
 	public void getNeutroniumRate();
 	
+	/** SUPPLIES AND MONEY **/
+	
+	/*
+	 * Set the amount of supplies on the planet.
+	 * @param amount - Number of supplies.
+	 */
+	public void setSupplies(Long amount);
+	
+	/*
+	 * Get the amount of supplies on the planet.
+	 * @return - The number of supplies.
+	 */
+	public Long getSupplies();
+	
+	/*
+	 * Set the amount of MegaCredits on the planet.
+	 * @param amount - Number of MegaCredits.
+	 */
+	public void setMoney(Long amount);
+	
+	/*
+	 * Get the amount of MegaCredits on the planet.
+	 * @return - Number of MegaCredits.
+	 */
+	public Long getMoney();
+	
+	/** STRUCTURES **/
+	
+	/*
+	 * Set the number of Factories on the planet.
+	 * @param amount - The number of Factories.
+	 */
+	public void setFactories(Long amount);
+	
+	/*
+	 * Get the number of Factories on the planet.
+	 * @return - The number of Factories.
+	 */
+	public Long getFactories();
+	
+	/*
+	 * Set the number of Mines on the planet.
+	 * @param amount - The number of Mines.
+	 */
+	public void setMines(Long amount);
+	
+	/*
+	 * Get the number of Mines on the planet.
+	 * @return - The number of mines.
+	 */
+	public Long getMines();
+	
+	/*
+	 * Set the number of Defense Posts on the planet.
+	 * @param amount - The number of Defense Posts
+	 */
+	public void setDefenses(Long amount);
+	
+	/*
+	 * Get the number of Defense Posts on the planet.
+	 * @return - The number of Defense Posts.
+	 */
+	public Long getDefenses();
+	
 	/** COLONIST INFO **/
+	
+	/*
+	 * Set the race that owns the planet.
+	 * @param race - The race that owns the planet.
+	 */
+	public void setPlayer(Player race);
+	
+	/*
+	 * Get the race that owns the planet.
+	 * @return - The race that owns the planet.
+	 */
+	public void getPlayer();
 	
 	/*
 	 * The number of colonists living on the planet.

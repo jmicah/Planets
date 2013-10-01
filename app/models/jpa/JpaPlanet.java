@@ -4,6 +4,7 @@ import java.util.List;
 
 import models.Native;
 import models.Planet;
+import models.Player;
 
 public class JpaPlanet implements Planet {
 
@@ -46,11 +47,11 @@ public class JpaPlanet implements Planet {
 		this.natives = natives;
 		
 	}
-	
+
 	@Override
 	public void setName(String name) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setTemp(int temp) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -86,7 +87,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setNatives(Native natives) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -98,7 +99,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setNativesPopulation(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -110,7 +111,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setNativesTaxRate(int rate) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -122,19 +123,19 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setNativesHappiness(int amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void getNativesHappiness() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setTritaniumOnSurface(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -146,7 +147,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setTritaniumInGround(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -158,19 +159,19 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setTritaniumRate(int rate) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void getTritaniumRate() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setDuraniumOnSurface(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -182,7 +183,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setDuraniumInGround(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -194,19 +195,19 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setDuraniumRate(int rate) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void getDuraniumRate() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setMolybdenumOnSurface(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -218,7 +219,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setMolybdenumInGround(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -230,19 +231,19 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setMolybdenumRate(int rate) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void getMolybdenumRate() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void setNeutroniumOnSurface(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -254,7 +255,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setNeutroniumInGround(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -266,19 +267,91 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setNeutroniumRate(int rate) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	public void getNeutroniumRate() {
 		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void setSupplies(Long amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long getSupplies() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMoney(Long amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long getMoney() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setFactories(Long amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long getFactories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setMines(Long amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long getMines() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setDefenses(Long amount) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Long getDefenses() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setPlayer(Player race) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getPlayer() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void setNumberOfColonists(Long amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -290,7 +363,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setColonistsTaxRate(int rate) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -302,7 +375,7 @@ public class JpaPlanet implements Planet {
 	@Override
 	public void setColonistsHappiness(int amount) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
@@ -310,5 +383,7 @@ public class JpaPlanet implements Planet {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	
 
 }
