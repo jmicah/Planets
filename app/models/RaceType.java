@@ -20,4 +20,7 @@ public enum RaceType {
 		this.order = order;
 	}
 	
+	public int getOrder() {
+		return this.order;
+	}
 }

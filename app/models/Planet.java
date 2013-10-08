@@ -1,6 +1,7 @@
 package models;
 
-import java.util.List;
+import java.util.Map;
+
 
 public interface Planet {
 
@@ -30,9 +31,9 @@ public interface Planet {
 	 */
 	public int getTemp();
 	
-	public void setCoordinates(Long xCoord, Long yCoord);
+	public void setCoordinates(Long x, Long y);
 	
-	public List<Long> getCoordinates();
+	public Map<String, Long> getCoordinates();
 	
 	/** NATIVE INFO **/
 	

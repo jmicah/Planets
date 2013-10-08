@@ -1,6 +1,7 @@
 package models.jpa;
 
-import java.util.List;
+
+import java.util.Map;
 
 import models.Native;
 import models.Planet;
@@ -38,12 +39,12 @@ public class JpaPlanet implements Planet {
 	public int colonistsTaxRate;
 	public int colonistsHappiness;
 	
-	protected JpaPlanet(String name, int temp, Long xCoord, Long yCoord, Native natives) {
+	protected JpaPlanet(String name, int temp, Long x, Long y, Native natives) {
 		
 		this.name = name;
 		this.temp = temp;		
-		this.xCoordinate = xCoord;
-		this.yCoordinate = yCoord;
+		this.xCoordinate = x;
+		this.yCoordinate = y;
 		this.natives = natives;
 		
 	}
@@ -73,13 +74,13 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setCoordinates(Long xCoord, Long yCoord) {
+	public void setCoordinates(Long x, Long y) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public List<Long> getCoordinates() {
+	public Map<String, Long> getCoordinates() {
 		// TODO Auto-generated method stub
 		return null;
 	}
