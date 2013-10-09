@@ -31,8 +31,17 @@ public interface Planet {
 	 */
 	public int getTemp();
 	
+	/*
+	 * An x,y coordinate of the planet.
+	 * @param 	x - The x coordinate
+	 * 			y - The y coordinate
+	 */
 	public void setCoordinates(Long x, Long y);
 	
+	/*
+	 * Get the coordinates of the planet.
+	 * @return - A map of the coordinates (x, y)
+	 */
 	public Map<String, Long> getCoordinates();
 	
 	/** NATIVE INFO **/
