@@ -8,7 +8,7 @@ package model;
  * @author Micah Cooper
  *
  */
-public interface User {
+public interface User extends AbstractModel {
 
 	/**
 	 * Set the user's email. It must be unique.

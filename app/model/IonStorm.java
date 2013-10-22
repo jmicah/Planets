@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public interface IonStorm {
+public interface IonStorm extends AbstractModel {
 
 	/**
 	 * The strength of the storm determines if it affects

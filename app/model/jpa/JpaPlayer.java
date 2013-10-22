@@ -4,7 +4,7 @@ import model.Player;
 import model.RaceType;
 import model.User;
 
-public class JpaPlayer implements Player {
+public class JpaPlayer extends JpaAbstractModel<JpaPlayer> implements Player {
 
 	public RaceType race;
 	

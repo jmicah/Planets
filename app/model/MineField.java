@@ -2,7 +2,7 @@ package model;
 
 import java.util.Map;
 
-public interface MineField {
+public interface MineField extends AbstractModel {
 
 	/**
 	 * Set the radius of the mine field.

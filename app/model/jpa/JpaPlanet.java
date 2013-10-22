@@ -1,45 +1,59 @@
 package model.jpa;
 
 
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+
+import play.Logger;
 
 import model.Native;
 import model.Planet;
 import model.Player;
 
-public class JpaPlanet implements Planet {
+@Entity
+public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 
+	@Column(length=255)
 	public String name;
-	public int temp;
-	public Long xCoordinate;
-	public Long yCoordinate;
+	
+	@Column(length=255)
+	public Integer temp;
+	
+	@Column(length=255)
+	public Integer xCoordinate;
+	
+	@Column(length=255)
+	public Integer yCoordinate;
 	
 	public Native natives;
-	public Long nativePopulation;
-	public int nativeTaxRate;
-	public int nativeHappiness;
+	public Integer nativePopulation;
+	public Integer nativeTaxRate;
+	public Integer nativeHappiness;
 	
-	public Long tritaniumSurface;
-	public Long tritaniumGround;
-	public int tritaniumRate;
+	public Integer tritaniumSurface;
+	public Integer tritaniumGround;
+	public Integer tritaniumRate;
 	
-	public Long duraniumSurface;
-	public Long duraniumGround;
-	public int duraniumRate;
+	public Integer duraniumSurface;
+	public Integer duraniumGround;
+	public Integer duraniumRate;
 	
-	public Long molybdeumSurface;
-	public Long molybdeumGround;
-	public int molybdeumRate;
+	public Integer molybdeumSurface;
+	public Integer molybdeumGround;
+	public Integer molybdeumRate;
 	
-	public Long neutroniumSurface;
-	public Long neutroniumGround;
-	public int neutroniumRate;
+	public Integer neutroniumSurface;
+	public Integer neutroniumGround;
+	public Integer neutroniumRate;
 	
-	public Long colonistsPopulation;
-	public int colonistsTaxRate;
-	public int colonistsHappiness;
+	public Integer colonistsPopulation;
+	public Integer colonistsTaxRate;
+	public Integer colonistsHappiness;
 	
-	protected JpaPlanet(String name, int temp, Long x, Long y, Native natives) {
+	protected JpaPlanet(String name, Integer temp, Integer x, Integer y, Native natives) {
 		
 		this.name = name;
 		this.temp = temp;		
@@ -47,82 +61,95 @@ public class JpaPlanet implements Planet {
 		this.yCoordinate = y;
 		this.natives = natives;
 		
+		this.save();
+				
+	}
+	
+	@Override
+	public JpaPlanet save() {
+		return super.save();
+	}
+	
+	@Override
+	public JpaPlanet delete() {
+		return super.delete();
 	}
 
 	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
+		this.name = name;
 		
 	}
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.name;
 	}
 
 	@Override
-	public void setTemp(int temp) {
-		// TODO Auto-generated method stub
+	public void setTemp(Integer temp) {
+		this.temp = temp;
 		
 	}
 
 	@Override
-	public int getTemp() {
-		// TODO Auto-generated method stub
-		return 0;
+	public Integer getTemp() {
+		return this.temp;
 	}
 
 	@Override
-	public void setCoordinates(Long x, Long y) {
-		// TODO Auto-generated method stub
+	public void setCoordinates(Integer x, Integer y) {
+		this.xCoordinate = x;
+		this.yCoordinate = y;
 		
 	}
 
 	@Override
-	public Map<String, Long> getCoordinates() {
-		// TODO Auto-generated method stub
-		return null;
+	public Map<String, Integer> getCoordinates() {
+		Map<String, Integer> coords = new HashMap<String, Integer>();
+		coords.put("x", this.xCoordinate);
+		coords.put("y", this.yCoordinate);
+		
+		return coords;
 	}
 
 	@Override
 	public void setNatives(Native natives) {
-		// TODO Auto-generated method stub
+		this.natives = natives;
 		
 	}
 
 	@Override
 	public Native getNatives() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.natives;
 	}
 
 	@Override
-	public void setNativesPopulation(Long amount) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Long getNativesPopulation() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setNativesTaxRate(int rate) {
+	public void setNativesPopulation(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public int getNativesTaxRate() {
+	public Integer getNativesPopulation() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void setNativesTaxRate(Integer rate) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Integer getNativesTaxRate() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void setNativesHappiness(int amount) {
+	public void setNativesHappiness(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -134,31 +161,31 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setTritaniumOnSurface(Long amount) {
+	public void setTritaniumOnSurface(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getTritaniumOnSurface() {
+	public Integer getTritaniumOnSurface() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setTritaniumInGround(Long amount) {
+	public void setTritaniumInGround(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getTritaniumInGround() {
+	public Integer getTritaniumInGround() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setTritaniumRate(int rate) {
+	public void setTritaniumRate(Integer rate) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -170,31 +197,31 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setDuraniumOnSurface(Long amount) {
+	public void setDuraniumOnSurface(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getDuraniumOnSurface() {
+	public Integer getDuraniumOnSurface() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setDuraniumInGround(Long amount) {
+	public void setDuraniumInGround(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getDuraniumInGround() {
+	public Integer getDuraniumInGround() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setDuraniumRate(int rate) {
+	public void setDuraniumRate(Integer rate) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -206,31 +233,31 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setMolybdenumOnSurface(Long amount) {
+	public void setMolybdenumOnSurface(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getMolybdenumOnSurface() {
+	public Integer getMolybdenumOnSurface() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMolybdenumInGround(Long amount) {
+	public void setMolybdenumInGround(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getMolybdenumInGround() {
+	public Integer getMolybdenumInGround() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMolybdenumRate(int rate) {
+	public void setMolybdenumRate(Integer rate) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -242,31 +269,31 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setNeutroniumOnSurface(Long amount) {
+	public void setNeutroniumOnSurface(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getNeutroniumOnSurface() {
+	public Integer getNeutroniumOnSurface() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setNeutroniumInGround(Long amount) {
+	public void setNeutroniumInGround(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getNeutroniumInGround() {
+	public Integer getNeutroniumInGround() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setNeutroniumRate(int rate) {
+	public void setNeutroniumRate(Integer rate) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -278,61 +305,61 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setSupplies(Long amount) {
+	public void setSupplies(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getSupplies() {
+	public Integer getSupplies() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMoney(Long amount) {
+	public void setMoney(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getMoney() {
+	public Integer getMoney() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setFactories(Long amount) {
+	public void setFactories(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getFactories() {
+	public Integer getFactories() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setMines(Long amount) {
+	public void setMines(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getMines() {
+	public Integer getMines() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setDefenses(Long amount) {
+	public void setDefenses(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getDefenses() {
+	public Integer getDefenses() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -350,37 +377,37 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void setNumberOfColonists(Long amount) {
+	public void setNumberOfColonists(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Long getNumberOfColonists() {
+	public Integer getNumberOfColonists() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void setColonistsTaxRate(int rate) {
+	public void setColonistsTaxRate(Integer rate) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public int getColonistsTaxRate() {
+	public Integer getColonistsTaxRate() {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void setColonistsHappiness(int amount) {
+	public void setColonistsHappiness(Integer amount) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public int getColonistsHappiness() {
+	public Integer getColonistsHappiness() {
 		// TODO Auto-generated method stub
 		return 0;
 	}

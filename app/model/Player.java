@@ -1,6 +1,6 @@
 package model;
 
-public interface Player {
+public interface Player extends AbstractModel {
 
 	/**
 	 * Set the user account of this player.

@@ -3,7 +3,7 @@ package model;
 import java.util.Map;
 
 
-public interface Planet {
+public interface Planet extends AbstractModel {
 
 	/* GENERAL SETTINGS */
 	
@@ -23,26 +23,26 @@ public interface Planet {
 	 * Set the temperature of the planet ranging 0-100
 	 * @param temp - The new temperature of the planet.
 	 */
-	public void setTemp(int temp);
+	public void setTemp(Integer temp);
 	
 	/**
 	 * Get the temperature of the planet.
-	 * @return - The temperature as an int. (0-100)
+	 * @return - The temperature as an Integer. (0-100)
 	 */
-	public int getTemp();
+	public Integer getTemp();
 	
 	/**
 	 * An x,y coordinate of the planet.
 	 * @param 	x - The x coordinate
 	 * 			y - The y coordinate
 	 */
-	public void setCoordinates(Long x, Long y);
+	public void setCoordinates(Integer x, Integer y);
 	
 	/**
 	 * Get the coordinates of the planet.
 	 * @return - A map of the coordinates (x, y)
 	 */
-	public Map<String, Long> getCoordinates();
+	public Map<String, Integer> getCoordinates();
 	
 	/* NATIVE INFO */
 	
@@ -62,31 +62,31 @@ public interface Planet {
 	 * Set the amount of natives living on the planet.
 	 * @param amount - The total number of natives.
 	 */
-	public void setNativesPopulation(Long amount);
+	public void setNativesPopulation(Integer amount);
 	
 	/**
 	 * Get the amount of natives on the planet.
 	 * @return - The number of natives on the planet.
 	 */
-	public Long getNativesPopulation();
+	public Integer getNativesPopulation();
 	
 	/**
 	 * Set the rate at which to tax the natives.
 	 * @param rate - The tax rate between 0 and 100.
 	 */
-	public void setNativesTaxRate(int rate);
+	public void setNativesTaxRate(Integer rate);
 	
 	/**
 	 * Get the rate at which the natives are being taxed.
 	 * @return - The tax rate. (0-100)
 	 */
-	public int getNativesTaxRate();
+	public Integer getNativesTaxRate();
 	
 	/**
 	 * Set the happiness off the natives.
 	 * @param amount - The happiness of the natives between -100 and 100.
 	 */
-	public void setNativesHappiness(int amount);
+	public void setNativesHappiness(Integer amount);
 	
 	/**
 	 * Get the happiness of the natives.
@@ -101,31 +101,31 @@ public interface Planet {
 	 * Set the amount of Tritanium on the surface of the planet.
 	 * @param amount - The amount of Tritanium on the surface.
 	 */
-	public void setTritaniumOnSurface(Long amount);
+	public void setTritaniumOnSurface(Integer amount);
 	
 	/**
 	 * Get the amount of Tritanium on the surface of the planet.
 	 * @return - The amount of Tritanium on the surface.
 	 */
-	public Long getTritaniumOnSurface();
+	public Integer getTritaniumOnSurface();
 	
 	/**
 	 * Set the amount of Tritanium in the ground.
 	 * @param amount - The amount of Tritanium in the ground.
 	 */
-	public void setTritaniumInGround(Long amount);
+	public void setTritaniumInGround(Integer amount);
 	
 	/**
 	 * Get the amount of Tritanium in the ground.
 	 * @return - The amount of Tritanium in the ground.
 	 */
-	public Long getTritaniumInGround();
+	public Integer getTritaniumInGround();
 	
 	/**
 	 * The rate at which Tritanium is mined.
 	 * @param rate - The rate between 10 and 100.
 	 */
-	public void setTritaniumRate(int rate);
+	public void setTritaniumRate(Integer rate);
 	
 	/**
 	 * The rate at which Tritanium in mined.
@@ -139,31 +139,31 @@ public interface Planet {
 	 * Set the amount of Duranium on the surface of the planet.
 	 * @param amount - The amount of Duranium on the surface.
 	 */
-	public void setDuraniumOnSurface(Long amount);
+	public void setDuraniumOnSurface(Integer amount);
 	
 	/**
 	 * Get the amount of Duranium on the surface of the planet.
 	 * @return - The amount of Duranium on the surface.
 	 */
-	public Long getDuraniumOnSurface();
+	public Integer getDuraniumOnSurface();
 	
 	/**
 	 * Set the amount of Duranium in the ground of the planet.
 	 * @param amount - The amount of Duranium in the ground.
 	 */
-	public void setDuraniumInGround(Long amount);
+	public void setDuraniumInGround(Integer amount);
 	
 	/**
 	 * Get the amount of Duranium in the ground of the planet.
 	 * @return - The amount of Duranium in the ground.
 	 */
-	public Long getDuraniumInGround();
+	public Integer getDuraniumInGround();
 	
 	/**
 	 * The rate at which Duranium is mined.
 	 * @param rate - The rate between 10 and 100.
 	 */
-	public void setDuraniumRate(int rate);
+	public void setDuraniumRate(Integer rate);
 	
 	/**
 	 * The rate at which Duranium is mined.
@@ -177,31 +177,31 @@ public interface Planet {
 	 * Set the amount of Molybdenum on the surface of the planet.
 	 * @param amount - The amount of Molybdenum on the surface.
 	 */
-	public void setMolybdenumOnSurface(Long amount);
+	public void setMolybdenumOnSurface(Integer amount);
 	
 	/**
 	 * Get the amount of Molybdenum on the surface of the planet.
 	 * @return - The amount of Molybdenum on the surface.
 	 */
-	public Long getMolybdenumOnSurface();
+	public Integer getMolybdenumOnSurface();
 	
 	/**
 	 * Set the amount of Molybdenum in the ground of the planet.
 	 * @param amount - The amount of Molybdenum in the ground.
 	 */
-	public void setMolybdenumInGround(Long amount);
+	public void setMolybdenumInGround(Integer amount);
 	
 	/**
 	 * Get the amount of Molybdenum in the ground of the planet.
 	 * @return - The amount of Molybdenum in the ground.
 	 */
-	public Long getMolybdenumInGround();
+	public Integer getMolybdenumInGround();
 	
 	/**
 	 * The rate at which Molybdenum is mined.
 	 * @param rate - The rate between 10 and 100.
 	 */
-	public void setMolybdenumRate(int rate);
+	public void setMolybdenumRate(Integer rate);
 	
 	/**
 	 * The rate at which Molybdenum is mined.
@@ -215,31 +215,31 @@ public interface Planet {
 	 * Set the amount of Neutronium on the surface of the planet.
 	 * @param amount - The amount of Neutronium on the surface.
 	 */
-	public void setNeutroniumOnSurface(Long amount);
+	public void setNeutroniumOnSurface(Integer amount);
 	
 	/**
 	 * Get the amount of Neutronium on the surface of the planet.
 	 * @return - The amount of Neutronium on the surface.
 	 */
-	public Long getNeutroniumOnSurface();
+	public Integer getNeutroniumOnSurface();
 	
 	/**
 	 * Set the amount of Neutronium in the ground of the planet.
 	 * @param amount - The amount of Neutronium in the ground.
 	 */
-	public void setNeutroniumInGround(Long amount);
+	public void setNeutroniumInGround(Integer amount);
 	
 	/**
 	 * Get the amount of Neutronium in the ground of the planet.
 	 * @return - The amount of Neutronium in the ground.
 	 */
-	public Long getNeutroniumInGround();
+	public Integer getNeutroniumInGround();
 	
 	/**
 	 * The rate at which Neutronium is mined.
 	 * @param rate - The rate between 10 and 100.
 	 */
-	public void setNeutroniumRate(int rate);
+	public void setNeutroniumRate(Integer rate);
 	
 	/**
 	 * The rate at which Neutronium is mined.
@@ -253,25 +253,25 @@ public interface Planet {
 	 * Set the amount of supplies on the planet.
 	 * @param amount - Number of supplies.
 	 */
-	public void setSupplies(Long amount);
+	public void setSupplies(Integer amount);
 	
 	/**
 	 * Get the amount of supplies on the planet.
 	 * @return - The number of supplies.
 	 */
-	public Long getSupplies();
+	public Integer getSupplies();
 	
 	/**
 	 * Set the amount of MegaCredits on the planet.
 	 * @param amount - Number of MegaCredits.
 	 */
-	public void setMoney(Long amount);
+	public void setMoney(Integer amount);
 	
 	/**
 	 * Get the amount of MegaCredits on the planet.
 	 * @return - Number of MegaCredits.
 	 */
-	public Long getMoney();
+	public Integer getMoney();
 	
 	/* STRUCTURES */
 	
@@ -279,37 +279,37 @@ public interface Planet {
 	 * Set the number of Factories on the planet.
 	 * @param amount - The number of Factories.
 	 */
-	public void setFactories(Long amount);
+	public void setFactories(Integer amount);
 	
 	/**
 	 * Get the number of Factories on the planet.
 	 * @return - The number of Factories.
 	 */
-	public Long getFactories();
+	public Integer getFactories();
 	
 	/**
 	 * Set the number of Mines on the planet.
 	 * @param amount - The number of Mines.
 	 */
-	public void setMines(Long amount);
+	public void setMines(Integer amount);
 	
 	/**
 	 * Get the number of Mines on the planet.
 	 * @return - The number of mines.
 	 */
-	public Long getMines();
+	public Integer getMines();
 	
 	/**
 	 * Set the number of Defense Posts on the planet.
 	 * @param amount - The number of Defense Posts
 	 */
-	public void setDefenses(Long amount);
+	public void setDefenses(Integer amount);
 	
 	/**
 	 * Get the number of Defense Posts on the planet.
 	 * @return - The number of Defense Posts.
 	 */
-	public Long getDefenses();
+	public Integer getDefenses();
 	
 	/* COLONIST INFO */
 	
@@ -329,36 +329,36 @@ public interface Planet {
 	 * The number of colonists living on the planet.
 	 * @param amount - The total number of colonists.
 	 */
-	public void setNumberOfColonists(Long amount);
+	public void setNumberOfColonists(Integer amount);
 	
 	/**
 	 * The number of colonists living on the planet.
 	 * @return - The total number of colonists.
 	 */
-	public Long getNumberOfColonists();
+	public Integer getNumberOfColonists();
 	
 	/**
 	 * The rate at which the colonists are taxed.
 	 * @param rate - The tax rate between 0 and 100.
 	 */
-	public void setColonistsTaxRate(int rate);
+	public void setColonistsTaxRate(Integer rate);
 	
 	/**
 	 * The rate at which the colonists are taxed.
 	 * @return - The rate between 0 and 100.
 	 */
-	public int getColonistsTaxRate();
+	public Integer getColonistsTaxRate();
 	
 	/**
 	 * The colonists happiness.
 	 * @param amount - The colonists happiness between -100 and 100.
 	 */
-	public void setColonistsHappiness(int amount);
+	public void setColonistsHappiness(Integer amount);
 	
 	/**
 	 * The colonists happiness.
 	 * @return - The colonists happiness between -100 and 100.
 	 */
-	public int getColonistsHappiness();
+	public Integer getColonistsHappiness();
 	
 }

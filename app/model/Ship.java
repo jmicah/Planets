@@ -1,5 +1,5 @@
 package model;
 
-public interface Ship {
+public interface Ship extends AbstractModel {
 
 }

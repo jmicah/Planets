@@ -2,7 +2,7 @@ package model;
 
 import java.util.List;
 
-public interface Game {
+public interface Game extends AbstractModel {
 
 	/**
 	 * 

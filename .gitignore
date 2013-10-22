@@ -9,3 +9,7 @@ eclipse
 .settings
 .classpath
 .project
+modules
+test-result
+test-model
+tmp
