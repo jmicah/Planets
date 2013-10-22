@@ -1,0 +1,16 @@
+package model;
+
+public enum Native {
+
+	NONE,
+	HUMANOIDS,
+	SILICONOIDS,
+	REPTILIANS,
+	GHIPSOLDALS,
+	INSECTOIDS,
+	AVIANS,
+	AMPHIBIANS,
+	AMORPHOUS,
+	BOVINOIDS
+	
+}

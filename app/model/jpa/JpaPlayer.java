@@ -1,7 +1,8 @@
-package models.jpa;
+package model.jpa;
 
-import models.Player;
-import models.RaceType;
+import model.Player;
+import model.RaceType;
+import model.User;
 
 public class JpaPlayer implements Player {
 
@@ -9,6 +10,18 @@ public class JpaPlayer implements Player {
 	
 	protected JpaPlayer(RaceType race){
 		this.race = race;
+	}
+	
+	@Override
+	public void setUser(User user) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public User getUser() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	@Override
@@ -22,5 +35,4 @@ public class JpaPlayer implements Player {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

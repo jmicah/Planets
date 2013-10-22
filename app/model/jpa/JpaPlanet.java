@@ -1,11 +1,11 @@
-package models.jpa;
+package model.jpa;
 
 
 import java.util.Map;
 
-import models.Native;
-import models.Planet;
-import models.Player;
+import model.Native;
+import model.Planet;
+import model.Player;
 
 public class JpaPlanet implements Planet {
 
@@ -344,9 +344,9 @@ public class JpaPlanet implements Planet {
 	}
 
 	@Override
-	public void getPlayer() {
+	public Player getPlayer() {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
