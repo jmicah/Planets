@@ -4,8 +4,12 @@ package model.jpa;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import play.Logger;
 
@@ -14,46 +18,57 @@ import model.Planet;
 import model.Player;
 
 @Entity
+@Table(name = "planet")
 public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 
 	@Column(length=255)
 	public String name;
 	
-	@Column(length=255)
-	public Integer temp;
+	public int temp;
 	
-	@Column(length=255)
-	public Integer xCoordinate;
-	
-	@Column(length=255)
-	public Integer yCoordinate;
+	public int xCoordinate;
+	public int yCoordinate;
 	
 	public Native natives;
-	public Integer nativePopulation;
-	public Integer nativeTaxRate;
-	public Integer nativeHappiness;
 	
-	public Integer tritaniumSurface;
-	public Integer tritaniumGround;
-	public Integer tritaniumRate;
+	public int nativePopulation;
+	public int nativeTaxRate;
+	public int nativeHappiness;
 	
-	public Integer duraniumSurface;
-	public Integer duraniumGround;
-	public Integer duraniumRate;
+	public int tritaniumSurface;
+	public int tritaniumGround;
+	public int tritaniumRate;
 	
-	public Integer molybdeumSurface;
-	public Integer molybdeumGround;
-	public Integer molybdeumRate;
+	public int duraniumSurface;
+	public int duraniumGround;
+	public int duraniumRate;
 	
-	public Integer neutroniumSurface;
-	public Integer neutroniumGround;
-	public Integer neutroniumRate;
+	public int molybdeumSurface;
+	public int molybdeumGround;
+	public int molybdeumRate;
 	
-	public Integer colonistsPopulation;
-	public Integer colonistsTaxRate;
-	public Integer colonistsHappiness;
+	public int neutroniumSurface;
+	public int neutroniumGround;
+	public int neutroniumRate;
 	
-	protected JpaPlanet(String name, Integer temp, Integer x, Integer y, Native natives) {
+	public int colonistsPopulation;
+	public int colonistsTaxRate;
+	public int colonistsHappiness;
+	
+	public int supplies;
+	public int money;
+	
+	public int factories;
+	public int mines;
+	public int defenses;
+	
+	@ManyToOne (
+			targetEntity = JpaPlayer.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	public Player player;
+	
+	protected JpaPlanet(String name, int temp, int x, int y, Native natives) {
 		
 		this.name = name;
 		this.temp = temp;		
@@ -87,18 +102,18 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 	}
 
 	@Override
-	public void setTemp(Integer temp) {
+	public void setTemp(int temp) {
 		this.temp = temp;
 		
 	}
 
 	@Override
-	public Integer getTemp() {
+	public int getTemp() {
 		return this.temp;
 	}
 
 	@Override
-	public void setCoordinates(Integer x, Integer y) {
+	public void setCoordinates(int x, int y) {
 		this.xCoordinate = x;
 		this.yCoordinate = y;
 		
@@ -125,291 +140,251 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 	}
 
 	@Override
-	public void setNativesPopulation(Integer amount) {
-		// TODO Auto-generated method stub
+	public void setNativesPopulation(int amount) {
+		this.nativePopulation = amount;
 		
 	}
 
 	@Override
-	public Integer getNativesPopulation() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getNativesPopulation() {
+		return this.nativePopulation;
 	}
 
 	@Override
-	public void setNativesTaxRate(Integer rate) {
-		// TODO Auto-generated method stub
+	public void setNativesTaxRate(int rate) {
+		this.nativeTaxRate = rate;
 		
 	}
 
 	@Override
-	public Integer getNativesTaxRate() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getNativesTaxRate() {
+		return this.nativeTaxRate;
 	}
 
 	@Override
-	public void setNativesHappiness(Integer amount) {
-		// TODO Auto-generated method stub
+	public void setNativesHappiness(int amount) {
+		this.nativeHappiness = amount;
 		
 	}
 
 	@Override
-	public void getNativesHappiness() {
-		// TODO Auto-generated method stub
+	public int getNativesHappiness() {
+		return this.nativeHappiness;
 		
 	}
 
 	@Override
-	public void setTritaniumOnSurface(Integer amount) {
-		// TODO Auto-generated method stub
+	public void setTritaniumOnSurface(int amount) {
+		this.tritaniumSurface = amount;
 		
 	}
 
 	@Override
-	public Integer getTritaniumOnSurface() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getTritaniumOnSurface() {
+		return this.tritaniumSurface;
 	}
 
 	@Override
-	public void setTritaniumInGround(Integer amount) {
-		// TODO Auto-generated method stub
+	public void setTritaniumInGround(int amount) {
+		this.tritaniumGround = amount;
 		
 	}
 
 	@Override
-	public Integer getTritaniumInGround() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getTritaniumInGround() {
+		return this.tritaniumGround;
 	}
 
 	@Override
-	public void setTritaniumRate(Integer rate) {
-		// TODO Auto-generated method stub
+	public void setTritaniumRate(int rate) {
+		this.tritaniumRate = rate;
 		
 	}
 
 	@Override
-	public void getTritaniumRate() {
-		// TODO Auto-generated method stub
+	public int getTritaniumRate() {
+		return this.tritaniumRate;
 		
 	}
 
 	@Override
-	public void setDuraniumOnSurface(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setDuraniumOnSurface(int amount) {
+		this.duraniumSurface = amount;		
 	}
 
 	@Override
-	public Integer getDuraniumOnSurface() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getDuraniumOnSurface() {
+		return this.duraniumSurface;
 	}
 
 	@Override
-	public void setDuraniumInGround(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setDuraniumInGround(int amount) {
+		this.duraniumGround = amount;
 	}
 
 	@Override
-	public Integer getDuraniumInGround() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getDuraniumInGround() {
+		return this.duraniumGround;
 	}
 
 	@Override
-	public void setDuraniumRate(Integer rate) {
-		// TODO Auto-generated method stub
-		
+	public void setDuraniumRate(int rate) {
+		this.duraniumRate = rate;
 	}
 
 	@Override
-	public void getDuraniumRate() {
-		// TODO Auto-generated method stub
-		
+	public int getDuraniumRate() {
+		return this.duraniumRate;
 	}
 
 	@Override
-	public void setMolybdenumOnSurface(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setMolybdenumOnSurface(int amount) {
+		this.molybdeumSurface = amount;
 	}
 
 	@Override
-	public Integer getMolybdenumOnSurface() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getMolybdenumOnSurface() {
+		return this.molybdeumSurface;
 	}
 
 	@Override
-	public void setMolybdenumInGround(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setMolybdenumInGround(int amount) {
+		this.molybdeumGround = amount;
 	}
 
 	@Override
-	public Integer getMolybdenumInGround() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getMolybdenumInGround() {
+		return this.molybdeumGround;
 	}
 
 	@Override
-	public void setMolybdenumRate(Integer rate) {
-		// TODO Auto-generated method stub
-		
+	public void setMolybdenumRate(int rate) {
+		this.molybdeumRate = rate;
 	}
 
 	@Override
-	public void getMolybdenumRate() {
-		// TODO Auto-generated method stub
-		
+	public int getMolybdenumRate() {
+		return this.molybdeumRate;
 	}
 
 	@Override
-	public void setNeutroniumOnSurface(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setNeutroniumOnSurface(int amount) {
+		this.neutroniumSurface = amount;
 	}
 
 	@Override
-	public Integer getNeutroniumOnSurface() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getNeutroniumOnSurface() {
+		return this.neutroniumSurface;
 	}
 
 	@Override
-	public void setNeutroniumInGround(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setNeutroniumInGround(int amount) {
+		this.neutroniumGround = amount;
 	}
 
 	@Override
-	public Integer getNeutroniumInGround() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getNeutroniumInGround() {
+		return this.neutroniumGround;
 	}
 
 	@Override
-	public void setNeutroniumRate(Integer rate) {
-		// TODO Auto-generated method stub
-		
+	public void setNeutroniumRate(int rate) {
+		this.neutroniumRate = rate;
 	}
 
 	@Override
-	public void getNeutroniumRate() {
-		// TODO Auto-generated method stub
-		
+	public int getNeutroniumRate() {
+		return this.neutroniumRate;
 	}
 
 	@Override
-	public void setSupplies(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setSupplies(int amount) {
+		this.supplies = amount;
 	}
 
 	@Override
-	public Integer getSupplies() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getSupplies() {
+		return this.supplies;
 	}
 
 	@Override
-	public void setMoney(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setMoney(int amount) {
+		this.money = amount;
 	}
 
 	@Override
-	public Integer getMoney() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getMoney() {
+		return this.money;
 	}
 
 	@Override
-	public void setFactories(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setFactories(int amount) {
+		this.factories = amount;
 	}
 
 	@Override
-	public Integer getFactories() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getFactories() {
+		return this.factories;
 	}
 
 	@Override
-	public void setMines(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setMines(int amount) {
+		this.mines = amount;
 	}
 
 	@Override
-	public Integer getMines() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getMines() {
+		return this.mines;
 	}
 
 	@Override
-	public void setDefenses(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setDefenses(int amount) {
+		this.defenses = amount;
 	}
 
 	@Override
-	public Integer getDefenses() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getDefenses() {
+		return this.defenses;
 	}
 
 	@Override
-	public void setPlayer(Player race) {
-		// TODO Auto-generated method stub
-		
+	public void setPlayer(Player player) {
+		this.player = player;		
 	}
 
 	@Override
 	public Player getPlayer() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.player;
 	}
 
 	@Override
-	public void setNumberOfColonists(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setColonistPopulation(int amount) {
+		this.colonistsPopulation = amount;
 	}
 
 	@Override
-	public Integer getNumberOfColonists() {
-		// TODO Auto-generated method stub
-		return null;
+	public int getColonistPopulation() {
+		return this.colonistsPopulation;
 	}
 
 	@Override
-	public void setColonistsTaxRate(Integer rate) {
-		// TODO Auto-generated method stub
-		
+	public void setColonistsTaxRate(int rate) {
+		this.colonistsTaxRate = rate;
 	}
 
 	@Override
-	public Integer getColonistsTaxRate() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getColonistsTaxRate() {
+		return this.colonistsTaxRate;
 	}
 
 	@Override
-	public void setColonistsHappiness(Integer amount) {
-		// TODO Auto-generated method stub
-		
+	public void setColonistsHappiness(int amount) {
+		this.colonistsHappiness = amount;
 	}
 
 	@Override
-	public Integer getColonistsHappiness() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getColonistsHappiness() {
+		return this.colonistsHappiness;
 	}
 	
 	

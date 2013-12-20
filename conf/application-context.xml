@@ -9,5 +9,7 @@
         
 	<bean id="GameRepository" class="model.jpa.JpaGameRepo" scope="singleton" />
 	<bean id="PlanetRepository" class="model.jpa.JpaPlanetRepo" scope="singleton" />
+	<bean id="PlayerRepository" class="model.jpa.JpaPlayerRepo" scope="singleton" />
+	<bean id="UserRepository" class="model.jpa.JpaUserRepo" scope="singleton" />
        
 </beans>

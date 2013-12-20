@@ -11,7 +11,7 @@ import model.PlanetRepo;
 public class JpaPlanetRepo implements PlanetRepo {
 
 	@Override
-	public Planet createPlanet(String name, Integer temp, Integer x, Integer y,
+	public Planet createPlanet(String name, int temp, int x, int y,
 			Native natives) {
 		return new JpaPlanet(name, temp, x, y, natives);
 	}

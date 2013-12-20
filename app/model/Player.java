@@ -20,7 +20,7 @@ public interface Player extends AbstractModel {
 	 * 
 	 * @param raceType
 	 */
-	public void setRaceType(RaceType raceType);
+	public void setRaceType(RaceType race);
 	
 	/**
 	 * 
