@@ -1,4 +1,23 @@
 #{extends 'main.html' /}
 #{set title:'Home' /}
 
-#{welcome /}
+<table>
+	<thead>
+		<tr>
+		<td>Name</td>
+		<td>Temp</td>
+		<td>Coords</td>
+		<td>Natives</td>
+		</tr>
+	</thead>
+	<tbody>
+#{list items:planets, as:'planet'}
+		<tr>
+			<td>${planet.getName()}</td>
+			<td>${planet.getTemp()}</td>
+			<td>${planet.getCoordinates().get('x')},${planet.getCoordinates().get('y')}</td>
+			<td>${planet.getNatives()}</td>
+		</tr>
+#{/list}
+	</tbody>
+</table>

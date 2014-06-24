@@ -13,6 +13,7 @@ import javax.persistence.Table;
 
 import play.Logger;
 
+import model.Game;
 import model.Native;
 import model.Planet;
 import model.Player;
@@ -31,24 +32,24 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 	
 	public Native natives;
 	
-	public int nativePopulation;
-	public int nativeTaxRate;
-	public int nativeHappiness;
+	public int nativesPopulation;
+	public int nativesTaxRate;
+	public int nativesHappiness;
 	
-	public int tritaniumSurface;
-	public int tritaniumGround;
+	public int tritaniumOnSurface;
+	public int tritaniumInGround;
 	public int tritaniumRate;
 	
-	public int duraniumSurface;
-	public int duraniumGround;
+	public int duraniumOnSurface;
+	public int duraniumInGround;
 	public int duraniumRate;
 	
-	public int molybdeumSurface;
-	public int molybdeumGround;
-	public int molybdeumRate;
+	public int molybdenumOnSurface;
+	public int molybdenumInGround;
+	public int molybdenumRate;
 	
-	public int neutroniumSurface;
-	public int neutroniumGround;
+	public int neutroniumOnSurface;
+	public int neutroniumInGround;
 	public int neutroniumRate;
 	
 	public int colonistsPopulation;
@@ -67,6 +68,12 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 			cascade = {CascadeType.PERSIST}
 			)
 	public Player player;
+	
+	@ManyToOne (
+			targetEntity = JpaGame.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	public Game game;
 	
 	protected JpaPlanet(String name, int temp, int x, int y, Native natives) {
 		
@@ -141,58 +148,58 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 
 	@Override
 	public void setNativesPopulation(int amount) {
-		this.nativePopulation = amount;
+		this.nativesPopulation = amount;
 		
 	}
 
 	@Override
 	public int getNativesPopulation() {
-		return this.nativePopulation;
+		return this.nativesPopulation;
 	}
 
 	@Override
 	public void setNativesTaxRate(int rate) {
-		this.nativeTaxRate = rate;
+		this.nativesTaxRate = rate;
 		
 	}
 
 	@Override
 	public int getNativesTaxRate() {
-		return this.nativeTaxRate;
+		return this.nativesTaxRate;
 	}
 
 	@Override
 	public void setNativesHappiness(int amount) {
-		this.nativeHappiness = amount;
+		this.nativesHappiness = amount;
 		
 	}
 
 	@Override
 	public int getNativesHappiness() {
-		return this.nativeHappiness;
+		return this.nativesHappiness;
 		
 	}
 
 	@Override
 	public void setTritaniumOnSurface(int amount) {
-		this.tritaniumSurface = amount;
+		this.tritaniumOnSurface = amount;
 		
 	}
 
 	@Override
 	public int getTritaniumOnSurface() {
-		return this.tritaniumSurface;
+		return this.tritaniumOnSurface;
 	}
 
 	@Override
 	public void setTritaniumInGround(int amount) {
-		this.tritaniumGround = amount;
+		this.tritaniumInGround = amount;
 		
 	}
 
 	@Override
 	public int getTritaniumInGround() {
-		return this.tritaniumGround;
+		return this.tritaniumInGround;
 	}
 
 	@Override
@@ -209,22 +216,22 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 
 	@Override
 	public void setDuraniumOnSurface(int amount) {
-		this.duraniumSurface = amount;		
+		this.duraniumOnSurface = amount;		
 	}
 
 	@Override
 	public int getDuraniumOnSurface() {
-		return this.duraniumSurface;
+		return this.duraniumOnSurface;
 	}
 
 	@Override
 	public void setDuraniumInGround(int amount) {
-		this.duraniumGround = amount;
+		this.duraniumInGround = amount;
 	}
 
 	@Override
 	public int getDuraniumInGround() {
-		return this.duraniumGround;
+		return this.duraniumInGround;
 	}
 
 	@Override
@@ -239,52 +246,52 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 
 	@Override
 	public void setMolybdenumOnSurface(int amount) {
-		this.molybdeumSurface = amount;
+		this.molybdenumOnSurface = amount;
 	}
 
 	@Override
 	public int getMolybdenumOnSurface() {
-		return this.molybdeumSurface;
+		return this.molybdenumOnSurface;
 	}
 
 	@Override
 	public void setMolybdenumInGround(int amount) {
-		this.molybdeumGround = amount;
+		this.molybdenumInGround = amount;
 	}
 
 	@Override
 	public int getMolybdenumInGround() {
-		return this.molybdeumGround;
+		return this.molybdenumInGround;
 	}
 
 	@Override
 	public void setMolybdenumRate(int rate) {
-		this.molybdeumRate = rate;
+		this.molybdenumRate = rate;
 	}
 
 	@Override
 	public int getMolybdenumRate() {
-		return this.molybdeumRate;
+		return this.molybdenumRate;
 	}
 
 	@Override
 	public void setNeutroniumOnSurface(int amount) {
-		this.neutroniumSurface = amount;
+		this.neutroniumOnSurface = amount;
 	}
 
 	@Override
 	public int getNeutroniumOnSurface() {
-		return this.neutroniumSurface;
+		return this.neutroniumOnSurface;
 	}
 
 	@Override
 	public void setNeutroniumInGround(int amount) {
-		this.neutroniumGround = amount;
+		this.neutroniumInGround = amount;
 	}
 
 	@Override
 	public int getNeutroniumInGround() {
-		return this.neutroniumGround;
+		return this.neutroniumInGround;
 	}
 
 	@Override

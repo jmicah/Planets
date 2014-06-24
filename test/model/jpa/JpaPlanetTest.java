@@ -22,7 +22,7 @@ public class JpaPlanetTest extends UnitTest {
 	public static JpaUserRepo users = Spring.getBeanOfType(JpaUserRepo.class);
 	
 	/**
-	 * Test creating a planet.
+	 * Test creating and deleting a planet.
 	 */
 	@Test
 	public void testCreatePlanet() {

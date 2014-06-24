@@ -28,25 +28,21 @@ public class JpaPlayer extends JpaAbstractModel<JpaPlayer> implements Player {
 	
 	@Override
 	public void setUser(User user) {
-		// TODO Auto-generated method stub
-		
+		this.user = user;
 	}
 
 	@Override
 	public User getUser() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.user;
 	}
 	
 	@Override
 	public void setRaceType(RaceType race) {
-		// TODO Auto-generated method stub
-
+		this.race = race;
 	}
 
 	@Override
 	public RaceType getRaceType() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.race;
 	}
 }

@@ -3,7 +3,8 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
+GET     /{id}                                   Application.index
+GET		/json/{id}								Application.gameJSON
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

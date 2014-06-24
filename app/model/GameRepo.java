@@ -9,8 +9,25 @@ public interface GameRepo {
 	 * @param user - The owner of the game.
 	 * @return - The game object.
 	 */
-	public Game createGame(User user);
+	public Game createGame(User owner);
 
+	/**
+	 * 
+	 * @param owner - The owner of the game.
+	 * @param height - The height of the map.
+	 * @param width - The width of the map.
+	 * @return - The game object
+	 */
+	public Game createGame(User owner, int height, int width);
+	
+	/**
+	 * 
+	 * @param owner - The owner of the game.
+	 * @param planetLimit - The maximum  number of planets in the game.
+	 * @return - The game object
+	 */
+	public Game createGame(User owner, int planetLimit);
+	
 	/**
 	 * 
 	 * @param id - The id of the game.
