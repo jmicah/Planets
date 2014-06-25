@@ -1,8 +1,11 @@
+import java.util.List;
 import java.util.Random;
 
 import model.Game;
 import model.Native;
 import model.Planet;
+import model.Player;
+import model.RaceType;
 import model.User;
 import model.jpa.JpaGameRepo;
 import model.jpa.JpaPlanetRepo;
@@ -27,8 +30,18 @@ public class TestDataLoader extends Job {
 	 */
 	@Override
 	public void doJob() {
-		User kirk = users.createUser("James", "Kirk", "captainslog@mailinator.com").save();
-		Game testGame = games.createGame(kirk).save();
+		
+		User aggiejack = users.createUser("Jack", "Daniels", "aggiejack@mailinator.com").save();
+		
+		Game testGame = games.createGame(aggiejack).save();		
+		
+		for(RaceType race : RaceType.values()) {
+			int i = race.getOrder()-1;
+			User user = users.createUser(testUsers[i].firstName, testUsers[i].lastName, testUsers[i].email).save();
+			Player player = players.createPlayer(race, user).save();
+			testGame.addPlayer(player);
+			testGame.save();
+		}
 		
 		Random random = new Random(123456789);
 		
@@ -131,6 +144,24 @@ public class TestDataLoader extends Job {
 		
 		return planet;
 	}
+	
+	public static void colonizePlanet(Planet planet) {
+		
+	}
+	
+	private static final PersonArray[] testUsers = {
+		new PersonArray("James", "Kirk", "kirk@mailinator.com"),
+		new PersonArray("Jean", "Picard", "picard@mailinator.com"),
+		new PersonArray("Sally", "Summers", "summers@mailinator.com"),
+		new PersonArray("John", "Doe", "doe@mailinator.com"),
+		new PersonArray("Billy", "Thorton", "thorton@mailinator.com"),
+		new PersonArray("Claire", "Danes", "danes@mailinator.com"),
+		new PersonArray("Reece", "Witherspoon", "witherspoon@mailinator.com"),
+		new PersonArray("Bruce", "Willis", "willis@mailinator.com"),
+		new PersonArray("George", "Martin", "martin@mailinator.com"),
+		new PersonArray("John", "Candy", "candy@mailinator.com"),
+		new PersonArray("Charlie", "Chaplin", "chaplin@mailinator.com")
+	};
 	
 	private static final String[] PlanetNames = {
 		"Abarat",
@@ -677,5 +708,16 @@ public class TestDataLoader extends Job {
 		"Zyrgon"		
 	};
 	
+	private static class PersonArray {
+		String firstName;
+		String lastName;
+		String email;
+		
+		PersonArray(String firstName, String lastName, String email) {
+			this.firstName = firstName;
+			this.lastName = lastName;
+			this.email = email;
+		}
+	}
 }
 

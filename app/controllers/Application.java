@@ -33,7 +33,9 @@ public class Application extends Controller {
     	
     	JSONSerializer serializer = new JSONSerializer();
     	serializer = serializer.prettyPrint(true);
-    	renderJSON(serializer.include("planets").serialize(game));
+    	serializer = serializer.include("players");
+    	serializer = serializer.include("planets");
+    	renderJSON(serializer.serialize(game));
     }
 
 }

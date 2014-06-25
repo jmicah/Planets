@@ -1,6 +1,6 @@
 package model;
 
-public enum ShipList {
+public enum ShipHull {
 
 	ANNIHILATION_CLASS_BATTLESHIP(6, 10, 10, 0, 1260, 320, 2910, 960, 10, 343, 340, 550, 910),
 	ARIES_CLASS_TRANSPORT(2, 2, 0, 0, 260, 260, 226, 69, 5, 12, 14, 25, 65),
@@ -23,7 +23,7 @@ public enum ShipList {
 	ShipAbility secondaryAbility;
 	ShipAbility tertiaryAbility;
 	
-	ShipList(
+	ShipHull(
 			int engines,
 			int beams,
 			int tubes,
@@ -42,7 +42,7 @@ public enum ShipList {
 		
 	}
 	
-	ShipList(
+	ShipHull(
 			int engines,
 			int beams,
 			int tubes,

@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import model.Game;
 import model.Player;
 import model.RaceType;
 import model.User;
@@ -13,7 +14,7 @@ import model.User;
 @Table(name = "player")
 public class JpaPlayer extends JpaAbstractModel<JpaPlayer> implements Player {
 
-	public RaceType race;
+	public RaceType raceType;
 	
 	@ManyToOne(
 			targetEntity = JpaUser.class,
@@ -21,8 +22,14 @@ public class JpaPlayer extends JpaAbstractModel<JpaPlayer> implements Player {
 			)
 	public User user;
 	
+	@ManyToOne(
+			targetEntity = JpaGame.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	public Game game;
+	
 	protected JpaPlayer(RaceType race, User user){
-		this.race = race;
+		this.raceType = race;
 		this.user = user;
 	}
 	
@@ -38,11 +45,11 @@ public class JpaPlayer extends JpaAbstractModel<JpaPlayer> implements Player {
 	
 	@Override
 	public void setRaceType(RaceType race) {
-		this.race = race;
+		this.raceType = race;
 	}
 
 	@Override
 	public RaceType getRaceType() {
-		return this.race;
+		return this.raceType;
 	}
 }

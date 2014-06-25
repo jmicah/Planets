@@ -11,6 +11,16 @@ public interface Game extends AbstractModel {
 	public User getOwner();
 	
 	/**
+	 * @return - A list of players.
+	 */
+	public List<Player> getPlayers();
+	
+	/**
+	 * @param - The player to be added.
+	 */
+	public void addPlayer(Player player);
+	
+	/**
 	 * 
 	 * @param height - The map height in light years.
 	 */

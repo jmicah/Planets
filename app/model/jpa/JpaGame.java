@@ -15,6 +15,7 @@ import model.Game;
 import model.IonStorm;
 import model.MineField;
 import model.Planet;
+import model.Player;
 import model.Ship;
 import model.User;
 
@@ -27,6 +28,12 @@ public class JpaGame extends JpaAbstractModel<JpaGame> implements Game {
 			cascade = {CascadeType.PERSIST}
 			)
 	public User owner;
+	
+	@OneToMany (
+			targetEntity = JpaPlayer.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	public List<Player> players;
 	
 	public int mapHeight;
 	public int mapWidth;
@@ -61,6 +68,9 @@ public class JpaGame extends JpaAbstractModel<JpaGame> implements Game {
 	protected JpaGame(User owner, int height, int width, int planetLimit) {
 		
 		this.owner = owner;
+		
+		this.players = new ArrayList<Player>();
+		
 		this.mapHeight = height;
 		this.mapWidth = width;
 		this.planetLimit = planetLimit;
@@ -175,5 +185,15 @@ public class JpaGame extends JpaAbstractModel<JpaGame> implements Game {
 	@Override
 	public int getShipLimit() {
 		return this.shipLimit;
+	}
+
+	@Override
+	public List<Player> getPlayers() {
+		return this.players;
+	}
+
+	@Override
+	public void addPlayer(Player player) {
+		this.players.add(player);
 	}
 }
