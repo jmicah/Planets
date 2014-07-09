@@ -1,19 +1,25 @@
 package model.jpa;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import play.Logger;
 
+import model.AbstractModel;
 import model.Game;
+import model.Government;
 import model.Native;
 import model.Planet;
 import model.Player;
@@ -35,6 +41,7 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 	public int nativesPopulation;
 	public int nativesTaxRate;
 	public int nativesHappiness;
+	public Government nativesGovernment;
 	
 	public int tritaniumOnSurface;
 	public int tritaniumInGround;
@@ -75,6 +82,27 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 			)
 	public Game game;
 	
+	@ManyToMany (
+			targetEntity = JpaPlanet.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	@JoinTable(name="connecting_planets")
+	public List<Planet> connectingPlanets;
+	
+	@ManyToMany (
+			targetEntity = JpaPlanet.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	@JoinTable(name="connecting_gravatonic_planets")
+	public List<Planet> connectingGravatonicPlanets;
+	
+	@ManyToMany (
+			targetEntity = JpaPlanet.class,
+			cascade = {CascadeType.PERSIST}
+			)
+	@JoinTable(name="connecting_jump_planets")
+	public List<Planet> connectingJumpPlanets;
+	
 	protected JpaPlanet(String name, int temp, int x, int y, Native natives) {
 		
 		this.name = name;
@@ -82,6 +110,10 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 		this.xCoordinate = x;
 		this.yCoordinate = y;
 		this.natives = natives;
+		
+		this.connectingPlanets = new ArrayList<Planet>();
+		this.connectingGravatonicPlanets = new ArrayList<Planet>();
+		this.connectingJumpPlanets = new ArrayList<Planet>();
 		
 		this.save();
 				
@@ -121,9 +153,9 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 
 	@Override
 	public void setCoordinates(int x, int y) {
+		Logger.debug("New Coords: " + x + ", " + y);
 		this.xCoordinate = x;
-		this.yCoordinate = y;
-		
+		this.yCoordinate = y;		
 	}
 
 	@Override
@@ -178,6 +210,16 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 	public int getNativesHappiness() {
 		return this.nativesHappiness;
 		
+	}
+	
+	@Override
+	public void setNativesGovernment(Government government) {
+		this.nativesGovernment = government;
+	}
+	
+	@Override 
+	public Government getNativesGovernment() {
+		return this.nativesGovernment;
 	}
 
 	@Override
@@ -392,6 +434,36 @@ public class JpaPlanet extends JpaAbstractModel<JpaPlanet> implements Planet {
 	@Override
 	public int getColonistsHappiness() {
 		return this.colonistsHappiness;
+	}
+
+	@Override
+	public void addConnectingPlanet(Planet planet) {
+		this.connectingPlanets.add(planet);
+	}
+
+	@Override
+	public List<Planet> getConnectingPlanets() {
+		return this.connectingPlanets;
+	}
+
+	@Override
+	public void addConnectingGravatonicPlanet(Planet planet) {
+		this.connectingGravatonicPlanets.add(planet);
+	}
+
+	@Override
+	public List<Planet> getConnectingGravatonicPlanets() {
+		return this.connectingGravatonicPlanets;
+	}
+
+	@Override
+	public void addConnectingJumpPlanet(Planet planet) {
+		this.connectingJumpPlanets.add(planet);
+	}
+
+	@Override
+	public List<Planet> getConnectingJumpPlanets() {
+		return this.connectingJumpPlanets;
 	}
 	
 	

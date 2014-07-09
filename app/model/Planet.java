@@ -1,5 +1,6 @@
 package model;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -83,7 +84,7 @@ public interface Planet extends AbstractModel {
 	public int getNativesTaxRate();
 	
 	/**
-	 * Set the happiness off the natives.
+	 * Set the happiness of the natives.
 	 * @param amount - The happiness of the natives between -100 and 100.
 	 */
 	public void setNativesHappiness(int amount);
@@ -93,6 +94,18 @@ public interface Planet extends AbstractModel {
 	 * @return - The happiness of the natives (-100-100)
 	 */
 	public int getNativesHappiness();
+	
+	/**
+	 * Set the government of natives.
+	 * @param government - The government of the natives.
+	 */
+	public void setNativesGovernment(Government government);
+	
+	/**
+	 * Get the government of the natives.
+	 * @return - The government of the natives.
+	 */
+	public Government getNativesGovernment();
 	
 	/* RESOURCE INFO */
 	
@@ -361,4 +374,39 @@ public interface Planet extends AbstractModel {
 	 */
 	public int getColonistsHappiness();
 	
+	
+	/* MAP INFO - CONNECTIONS ETC */
+	
+	/**
+	 * Add connecting planets at Max Warp.
+	 * @param planet - The planet to be added.
+	 */
+	public void addConnectingPlanet(Planet planet);
+	
+	/**
+	 * @return - A list of connecting planets at Max Warp.
+	 */
+	public List<Planet> getConnectingPlanets();
+	
+	/**
+	 * Add connecting planet at Gravatonic Max Warp.
+	 * @param planet - The planet to be added.
+	 */
+	public void addConnectingGravatonicPlanet(Planet planet);
+	
+	/**
+	 * @return - A list of connecting planets at Gravatonic Max Warp.
+	 */
+	public List<Planet> getConnectingGravatonicPlanets();
+	
+	/**
+	 * Add planets that are able to be jumped to using HYP.
+	 * @param planet - The planet to be added.
+	 */
+	public void addConnectingJumpPlanet(Planet planet);
+	
+	/**
+	 * @return - A list of planets that can be jumped to using HYP.
+	 */
+	public List<Planet> getConnectingJumpPlanets();
 }
