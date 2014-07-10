@@ -296,80 +296,103 @@ public class TestDataLoader extends Job {
 	public void setHomeWorldsDoubleCircle(Random random, Game game) {
 		List<Player> players = new ArrayList(game.getPlayers());
 		Player player = null;
+		int pos = 0;
 		
 		//Position 1
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1000, 1750, random, game, player);
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 2
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1520, 1520, random, game, player);	
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 3
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1750, 1000, random, game, player);	
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 4
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1520, 520, random, game, player);	
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 5
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1000, 250, random, game, player);	
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 6
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(520, 520, random, game, player);	
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 7
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(250, 1000, random, game, player);
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 8
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(520, 1520, random, game, player);
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 9
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(700, 1100, random, game, player);
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 10
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = random.nextInt(players.size() - 1);
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1300, 1100, random, game, player);
 		Logger.info("Set home world for " + player.getRaceType());
-		players.remove(random.nextInt(players.size()));
+		players.remove(pos);
 		
 		//Position 11
 		Logger.info("Num Players: " + players.size() + " vs " + game.getPlayers().size());
-		player = players.get(random.nextInt(players.size()));
+		pos = 0;
+		Logger.info("Position " + pos);
+		player = players.get(pos);
 		setHomeWorld(1000, 700, random, game, player);
 		Logger.info("Set home world for " + player.getRaceType());
 		
@@ -444,7 +467,9 @@ public class TestDataLoader extends Job {
 		for (Player player : game.getPlayers()) {
 			int numPlanets = random.nextInt(12) + 5;
 			
+			Logger.info("Making " + numPlanets + " for " + player.getRaceType());
 			while(numPlanets > 0) {
+				Logger.info(numPlanets + " remaining.");
 				boolean found = false;
 				for (Planet planet : game.getPlanets()) {					
 					if (player == planet.getPlayer()) {						
